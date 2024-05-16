@@ -4,7 +4,14 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("What type of database would you like to use? SQL, Mongo, List");
+
+            var choice = Console.ReadLine();
+
+            IDataAccess Dataset = DataAccessFactory.GetDataAccessType(choice);
+
+            Dataset.LoadData();
+            Dataset.SaveData();
         }
     }
 }
